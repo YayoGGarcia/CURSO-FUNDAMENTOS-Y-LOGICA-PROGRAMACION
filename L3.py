@@ -36,9 +36,9 @@ def DetectarTendencia(lista_promedios):
                 primer_valor_valido=elemento_actual
             ultimo_valor_valido=elemento_actual
     if ultimo_valor_valido>primer_valor_valido:
-        print(" AUMENTO ")
+        print(" CALENTO ")
     if ultimo_valor_valido<primer_valor_valido:
-        print(" DISMINUYO ")    
+        print(" ENFRIO ")    
     else:
         print(" ESTABLE ")
 DetectarTendencia(lista_promedios)
