@@ -9,19 +9,21 @@ def PromedioVentana(temperaturas,inicio,tamano_ventana):
     sum_total=0
     prom=0
     for i in range (inicio,inicio+tamano_ventana):
-        sum_total+=temperaturas[i]
+        sum_total+=temperaturas[i] #sum_total=sum_total + temperaturas[i]
     prom=sum_total/tamano_ventana 
     return round(prom, 2)
 
 def CalcularPromediosMoviles(temperaturas):
     lista_promedios=[]
     for i in range (0, (len(temperaturas))):
-        if i < tamano_ventana-1:
+        if i < tamano_ventana-1: #i=0, 0<3-1 = 0<2;           i=1, 1<3-1 = 1<2, i=2, 2<3-1;  2<2
             lista_promedios.append("N/A")
-        elif i >= tamano_ventana -1: 
-            inicio_ventana = i - tamano_ventana + 1
-            prom=PromedioVentana(temperaturas,inicio_ventana,tamano_ventana)
-            lista_promedios.append(prom)
+        elif i >= tamano_ventana -1:  #2>=3-1,  2>=2
+            inicio_ventana = i - tamano_ventana + 1 # i=2; inicio_ventana= 2-3+1; inicio_ventana=0; i=4; inicio_ventana=4-3+1=2
+            prom=PromedioVentana(temperaturas,inicio_ventana,tamano_ventana) 
+            lista_promedios.append(prom) 
+            #lista_promedios.append(PromedioVentana(temperaturas,i,tamano_ventana))
+
     return lista_promedios
 lista_promedios=CalcularPromediosMoviles(temperaturas) 
 print(f"PROMEDIOS MOVILES: {lista_promedios}")
@@ -30,7 +32,7 @@ def DetectarTendencia(lista_promedios):
     primer_valor_valido=None
     ultimo_valor_valido=None
     for i in range (0, len(lista_promedios)):
-        elemento_actual = lista_promedios[i]
+        elemento_actual = lista_promedios[i] #i=0; elemento_actual=#n/a"; i=2, elemento_actual=41.73
         if (elemento_actual!="N/A"):
             if(primer_valor_valido==None):
                 primer_valor_valido=elemento_actual
